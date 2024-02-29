@@ -11,6 +11,10 @@ let asr = $('#asr');
 let shom = $('#shom');
 let xufton = $('#xufton');
 
+let date = $('#date');
+let hour = $('#hour')
+let region = $('#region')
+
 
 async function namazTime(data) {
     try {
@@ -60,6 +64,7 @@ async function findTime(data) {
 
 changeRegion.addEventListener('change', (e) => {
     findTime(e.target.value)
+    renderRegion(e.target.value)
 })
 
 
@@ -70,4 +75,14 @@ function renderCardData(el) {
     asr.textContent = `${el.times.asr}`
     shom.textContent = `${el.times.shom_iftor}`
     xufton.textContent = `${el.times.hufton}`
+}
+
+let d = new Date()
+
+date.textContent = `${d.getMonth()+1}.${d.getDate()}.${d.getFullYear()}`
+hour.textContent = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+
+
+function renderRegion(data) {
+    region.textContent = data
 }
