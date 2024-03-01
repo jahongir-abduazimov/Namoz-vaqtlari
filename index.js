@@ -78,9 +78,76 @@ function renderCardData(el) {
 }
 
 let d = new Date()
+let months = d.getMonth()
+let day = d.getDate()
+let year = d.getFullYear()
 
-date.textContent = `${d.getMonth()+1}.${d.getDate()}.${d.getFullYear()}`
-hour.textContent = `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+let month
+switch (months) {
+    case 0:
+        month = "Yanvar";
+        break;
+    case 1:
+        month = "Fevral";
+        break;
+    case 2:
+        month = "Mart";
+        break;
+    case 3:
+        month = "Aprel";
+        break;
+    case 4:
+        month = "May";
+        break;
+    case 5:
+        month = "Iyun";
+        break;
+    case 6:
+        month = "Iyul";
+        break;
+    case 7:
+        month = "Avgust";
+        break;
+    case 8:
+        month = "Sentyabr";
+        break;
+    case 9:
+        month = "Oktyabr";
+        break;
+    case 10:
+        month = "Noyabr";
+        break;
+    case 11:
+        month = "Dekabr";
+        break;
+}
+
+if (month < 10) {
+    month = `0${month}`
+}
+
+if (day < 10) {
+    day = `0${day}`
+}
+
+let hours = d.getHours()
+let minut = d.getMinutes()
+let second = d.getSeconds()
+
+if (hours < 10) {
+    hours = `0${hours}`
+}
+
+if (minut < 10) {
+    minut = `0${minut}`
+}
+
+if (second < 10) {
+    second = `0${second}`
+}
+
+date.textContent = `${day}-${month} ${year}-yil`
+hour.textContent = `${hours}:${minut}:${second}`
 
 
 function renderRegion(data) {
