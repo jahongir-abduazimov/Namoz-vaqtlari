@@ -17,9 +17,21 @@ let region = $('#region')
 
 
 async function namazTime(data) {
+    tong.innerHTML = `Kuting...`
+    quyosh.innerHTML = `Kuting...`
+    peshin.innerHTML = `Kuting...`
+    asr.innerHTML = `Kuting...`
+    shom.innerHTML = `Kuting...`
+    xufton.innerHTML = `Kuting...`
     try {
         let response = await fetch(baseURL + `?region=${data}`);
         let result = await response.json();
+        tong.innerHTML = ``
+        quyosh.innerHTML = ``
+        peshin.innerHTML = ``
+        asr.innerHTML = ``
+        shom.innerHTML = ``
+        xufton.innerHTML = ``
         dataNamoz(result);
     } catch (err) {
         console.log(err);
@@ -132,7 +144,6 @@ if (day < 10) {
 
 let hours = d.getHours()
 let minut = d.getMinutes()
-let second = d.getSeconds()
 
 if (hours < 10) {
     hours = `0${hours}`
@@ -142,12 +153,8 @@ if (minut < 10) {
     minut = `0${minut}`
 }
 
-if (second < 10) {
-    second = `0${second}`
-}
-
 date.textContent = `${day}-${month} ${year}-yil`
-hour.textContent = `${hours}:${minut}:${second}`
+hour.textContent = `${hours}:${minut}`
 
 
 function renderRegion(data) {
