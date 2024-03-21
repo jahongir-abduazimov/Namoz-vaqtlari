@@ -40,7 +40,7 @@ async function namazTime(data) {
 namazTime("Toshkent")
 
 function dataNamoz(el) {
-    tong.textContent = `${el.times.asr}`
+    tong.textContent = `${el.times.tong_saharlik}`
     quyosh.textContent = `${el.times.quyosh}`
     peshin.textContent = `${el.times.peshin}`
     asr.textContent = `${el.times.asr}`
@@ -81,7 +81,7 @@ changeRegion.addEventListener('change', (e) => {
 
 
 function renderCardData(el) {
-    tong.textContent = `${el.times.asr}`
+    tong.textContent = `${el.times.tong_saharlik}`
     quyosh.textContent = `${el.times.quyosh}`
     peshin.textContent = `${el.times.peshin}`
     asr.textContent = `${el.times.asr}`
